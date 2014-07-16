@@ -1,6 +1,6 @@
 angular.module("sharc").controller("InstSelect",
     function ($scope, $http) {
-         $http.get('/json/metadata.json').success(function(data) {
+         $http.get('json/metadata.json').success(function(data) {
              $scope.instMetadata = data;
              // console.log(JSON.stringify(data));
          });
