@@ -10,8 +10,8 @@
         <select ng-model="selectedFile" ng-change="makeHighChartData()" ng-options="note.file as note.note for note in notes">
             <option value="">Select Note</option>
         </select>
-        Amplitude <input type="radio" name="outputType" value="amplitude" ng-model="outputType" ng-change="makeHighChartData()" checked="checked">
-        Decibels <input type="radio" name="outputType" value="decibels" ng-model="outputType" ng-change="makeHighChartData()">
+        Amplitude <input type="radio" name="outputType" value="amplitude" ng-model="my.outputType" ng-change="makeHighChartData()" checked="checked">
+        Decibels <input type="radio" name="outputType" value="decibels" ng-model="my.outputType" ng-change="makeHighChartData()">
         <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
     </body>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>

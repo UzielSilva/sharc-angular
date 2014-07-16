@@ -1,5 +1,8 @@
 angular.module("sharc").controller("InstSelect",
     function ($scope, $http) {
+
+        $scope.my = {"outputType": "amplitude"};
+
          $http.get('json/metadata.json').success(function(data) {
              $scope.instMetadata = data;
              // console.log(JSON.stringify(data));
@@ -33,7 +36,7 @@ angular.module("sharc").controller("InstSelect",
                  });
                  result.yAxis = {
                     title: {
-                        text: $scope.outputType
+                        text: $scope.my.outputType
                     },
                     plotLines: [{
                         value: 0,
@@ -42,7 +45,8 @@ angular.module("sharc").controller("InstSelect",
                     }]
                  };
                  result.tooltip = {
-                    valueSuffix: ''
+                    valueSuffix: '',
+                    valueDecimals: 1
                  };
                  result.legend = {
                     layout: 'vertical',
@@ -55,7 +59,7 @@ angular.module("sharc").controller("InstSelect",
                     data: []
                  }];
                  $.each($scope.noteData.harmonics, function(i, harm) {
-                      var level = $scope.outputType == "amplitude" ? harm.amp : harm.db;
+                      var level = $scope.my.outputType == "amplitude" ? harm.amp : harm.db;
                      result.series[0].data.push(level);
                  });
                  $('#container').highcharts(result);
