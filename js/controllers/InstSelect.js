@@ -30,7 +30,16 @@ angular.module("sharc").controller("InstSelect",
                     text: 'Note: ' + $scope.selectedFile,
                     x: -20
                  };
-                 result.xAxis = {"categories": []};
+                 result.xAxis = {
+                    title: {
+                        text: "harmonic"
+                    },
+                    "categories": [],
+                    labels: {
+                        step: 5,
+                        maxStaggerLines: 1
+                    }
+                 };
                  $.each($scope.noteData.harmonics, function(i, harm) {
                      result.xAxis.categories.push(harm.num);
                  });
